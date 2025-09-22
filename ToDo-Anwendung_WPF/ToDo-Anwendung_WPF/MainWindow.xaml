@@ -38,7 +38,7 @@
                 <Button x:Name="SaveButton" Content="Save" Grid.Column="3" Grid.Row="3" Margin="10 30 10 30" Click="SaveToDo"></Button>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="ViewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Visible">
+        <GroupBox x:Name="ViewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
