@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO.Packaging;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,14 +12,23 @@ using System.Windows.Shapes;
 
 namespace ToDo_Anwendung_WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
+	public partial class MainWindow : Window
+	{
+		private void NewToDo(object s, RoutedEventArgs e)
+		{
+			
+		}
+		private void saveToDo(object s, RoutedEventArgs e)
         {
-            InitializeComponent();
-        }
-    }
+			
+		}
+		private void ViewToDo(object s, RoutedEventArgs e)
+		{
+
+		}
+		public MainWindow()
+		{
+			InitializeComponent();
+		}
+	}
 }
