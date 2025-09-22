@@ -22,7 +22,7 @@ namespace ToDo_Anwendung_WPF
 		}
 		private void SavaToDo(object s, RoutedEventArgs e)
 		{
-			string[] toDo_str = label.Content.ToString().Split('\n');
+            string[] toDo_str = NewButtonTextBox.Text.ToString().Split('\n');
 			if (toDo_str == null)
 			{
 				MessageBox.Show("You need to write a Todo.");
@@ -49,8 +49,11 @@ namespace ToDo_Anwendung_WPF
 			NewBox.Visibility = Visibility.Collapsed;
 		}
 		private void ViewToDo(object s, RoutedEventArgs e)
-		{
-			List<string> todos = new List<string>();
+        {
+            NewBox.Visibility = Visibility.Visible;
+            ViewBox.Visibility = Visibility.Collapsed;
+
+            List<ListBoxItem> todos = new List<ListBoxItem>();
 			using (var sr = new StreamReader("ToDo.txt"))
 			{
 				string todo = "";
@@ -61,15 +64,14 @@ namespace ToDo_Anwendung_WPF
 					line = sr.ReadLine();
 					if (line.Split(':')[0] == "todo")
 					{
-						todos.Add(todo);
+						todos.Add(new ListBoxItem { Content = todo });
 						todo = "";
 					}
 				}
 				while (line != null);
 			}
-			NewBox.Visibility = Visibility.Visible;
-			ViewBox.Visibility = Visibility.Collapsed;
-		}
+            ViewListBox.ItemsSource = todos;
+        }
 		public MainWindow()
 		{
 			InitializeComponent();
