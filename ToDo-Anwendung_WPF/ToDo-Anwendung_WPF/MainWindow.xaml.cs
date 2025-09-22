@@ -20,5 +20,20 @@ namespace ToDo_Anwendung_WPF
         {
             InitializeComponent();
         }
+
+        private void NewToDo(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ViewToDo(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveToDo(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
