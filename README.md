@@ -11,7 +11,7 @@
 * Maximilian Moser\
 	Funktion = Einsatzleiter & Gruppenkommandant\
 	Aufgabenbereich = Einsatzführung und Einsatzdokumentation\
-	Zweigbereich = *, "documentation"
+	Zweigbereich = *, "documentation", "logic"
 * Janick Wahl\
 	Funktion = Prozessverwalter\
 	Aufgabenbereich = Kontrolle der Änderungen\
