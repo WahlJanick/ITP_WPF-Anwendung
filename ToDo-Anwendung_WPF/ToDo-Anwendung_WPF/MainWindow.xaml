@@ -18,8 +18,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="New" Content="New" Margin="10" Grid.Column="0" Grid.Row="0"></Button>
-        <Button x:Name="View" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" ></Button>
+        <Button x:Name="New" Content="New" Margin="10" Grid.Column="0" Grid.Row="0" Click="NewToDo"></Button>
+        <Button x:Name="View" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" Click="ViewToDo" ></Button>
         <GroupBox x:Name="NewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
             <TextBox x:Name="NewButtonTextBox"></TextBox>
         </GroupBox>
@@ -27,6 +27,6 @@
             <ListBox x:Name="ViewListBox">
             </ListBox>
         </GroupBox>
-        <Button x:Name="Save" Content="Save" Margin="30 60 30 80" Grid.Column="0" Grid.Row="1" ></Button>
+        <Button x:Name="Save" Content="Save" Margin="30 60 30 80" Grid.Column="0" Grid.Row="1" Click="SaveToDo" ></Button>
     </Grid>
 </Window>
