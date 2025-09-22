@@ -16,9 +16,16 @@
 		<Grid.RowDefinitions >
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button x:Name="New" Content="New" Margin="10" Grid.Column="0" Grid.Row="0"></Button>
         <Button x:Name="View" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" ></Button>
-        <GroupBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"></GroupBox>
+        <GroupBox x:Name="NewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
+            
+        </GroupBox>
+        <GroupBox x:Name="ViewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
+
+        </GroupBox>
+        <Button x:Name="Save" Content="Save" Margin="30 60 30 80" Grid.Column="0" Grid.Row="1" ></Button>
     </Grid>
 </Window>
