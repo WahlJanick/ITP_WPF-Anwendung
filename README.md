@@ -14,7 +14,7 @@
 	Zweigbereich = *, "documentation"
 * Janick Wahl\
 	Funktion = Prozessverwalter\
-	Aufgabenbereich = kontrolle der Änderungen\
+	Aufgabenbereich = Kontrolle der Änderungen\
 	Zweigbereich = *, !"documentation"
 * Michael Windhager\
 	Funktion = Grafikbenutzerschnittstellenentwickler\
