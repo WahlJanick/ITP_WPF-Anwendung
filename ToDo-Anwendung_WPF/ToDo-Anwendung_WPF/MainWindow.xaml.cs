@@ -20,7 +20,7 @@ namespace ToDo_Anwendung_WPF
 			ViewBox.Visibility = Visibility.Collapsed;
 			NewBox.Visibility = Visibility.Visible;
 		}
-		private void SavaToDo(object s, RoutedEventArgs e)
+		private void SaveToDo(object s, RoutedEventArgs e)
 		{
             string[] toDo_str = NewButtonTextBox.Text.ToString().Split('\n');
 			if (toDo_str == null)
@@ -40,7 +40,7 @@ namespace ToDo_Anwendung_WPF
 			}
 			using (var sw = new StreamWriter("ToDo.txt"))
 			{
-				sw.WriteLine($"todo:{amountOfToDos + 1}");
+				sw.WriteLine($"todo:{amountOfToDos}");
 				foreach (string str in toDo_str)
 				{
 					sw.WriteLine(str);
@@ -50,26 +50,28 @@ namespace ToDo_Anwendung_WPF
 		}
 		private void ViewToDo(object s, RoutedEventArgs e)
         {
-            NewBox.Visibility = Visibility.Visible;
-            ViewBox.Visibility = Visibility.Collapsed;
+            NewBox.Visibility = Visibility.Collapsed;
+            ViewBox.Visibility = Visibility.Visible;
 
             List<ListBoxItem> todos = new List<ListBoxItem>();
-			using (var sr = new StreamReader("ToDo.txt"))
+            string todo = "";
+            using (var sr = new StreamReader("ToDo.txt"))
 			{
-				string todo = "";
 				string line = sr.ReadLine();
-				do
-				{
-					todo += line;
+                while (true)
+                {
+					todo += line + '\n';
 					line = sr.ReadLine();
+					if (line == null)
+						break;
 					if (line.Split(':')[0] == "todo")
 					{
 						todos.Add(new ListBoxItem { Content = todo });
 						todo = "";
 					}
 				}
-				while (line != null);
 			}
+            todos.Add(new ListBoxItem { Content = todo });
             ViewListBox.ItemsSource = todos;
         }
 		public MainWindow()
