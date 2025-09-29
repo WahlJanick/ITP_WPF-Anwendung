@@ -22,4 +22,4 @@ Primitivste Aufgabenverwaltung in C Hashtag mit Benutzeroberfläche in WPF.
 
 [GitHub Seite (von Janick Wahl)](https://github.com/WahlJanick/ITP_WPF-Anwendung)
 
-_2025-09-22 14:23:14 - 2025-09-29 15:~~:~~_
+_2025-09-22 14:23:14 - 2025-09-29 15:40:00_
