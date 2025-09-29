@@ -1,7 +1,6 @@
 # ITP WPF-Anwendung
-[Höhere technische Bundeslehr- und Versuchsanstalt Waidhofen an der Ybbs](https://de.wikipedia.org/wiki/HTLWY)
-2025 2026
-3AHIT
+[Höhere technische Bundeslehr- und Versuchsanstalt Waidhofen an der Ybbs](https://de.wikipedia.org/wiki/HTLWY) 2025 2026 3AHIT
+Primitivste Aufgabenverwaltung in C Hashtag mit Benutzeroberfläche in WPF.
 
 ## group division
 * Sebastian Langer\
@@ -14,13 +13,13 @@
 	Zweigbereich = *, "documentation"
 * Janick Wahl\
 	Funktion = Prozessverwalter\
-	Aufgabenbereich = Kontrolle der Änderungen\
+	Aufgabenbereich = Aufgabenverteilung und Kontrolle der Änderungen\
 	Zweigbereich = *, !"documentation"
 * Michael Windhager\
 	Funktion = Grafikbenutzerschnittstellenentwickler\
-	Aufgabenbereich = grafische Benutzerschnittstellen\
+	Aufgabenbereich = grafische Benutzerschnittstelle\
 	Zweigbereich = "ui-feature"
 
 [GitHub Seite (von Janick Wahl)](https://github.com/WahlJanick/ITP_WPF-Anwendung)
 
-_2025-09-22 14:23:14 - 2025-09-~~ ~~:~~:~~_
+_2025-09-22 14:23:14 - 2025-09-29 15:~~:~~_

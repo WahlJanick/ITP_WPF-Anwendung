@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:ToDo_Anwendung_WPF"
 		mc:Ignorable="d"
-		Title="MainWindow" Height="450" Width="800">
+		Title="MainWindow" Height="450" Width="800" FontFamily="Arial Nova Light" FontSize="15">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
@@ -13,50 +13,78 @@
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions >
-			<RowDefinition Height="50"/>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
-		<Button x:Name="New" Content="New" Margin="10" Grid.Column="0" Grid.Row="0" Click="NewToDo"></Button>
-		<Button x:Name="View" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" Click="ViewToDo" ></Button>
-		<GroupBox x:Name="NewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions >
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
-				<TextBox x:Name="NewButtonTextBox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="3"></TextBox>
-				<Button x:Name="SaveButton" Content="Save" Grid.Column="3" Grid.Row="3" Margin="10 30 10 30" Click="SaveToDo"></Button>
-			</Grid>
-		</GroupBox>
-		<GroupBox x:Name="ViewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions >
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
-				<ListBox x:Name="ViewListBox">
-					<ListBoxItem></ListBoxItem>
-				</ListBox>
-				<Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3"></Label>
-			</Grid>
-		</GroupBox>
-	</Grid>
+		<Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="New" Background="#E9E9E9" Content="New" Margin="10" Grid.Column="0" Grid.Row="0" Click="NewToDo">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="7" ShadowDepth="0"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="View" Background="#E9E9E9" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" Click="ViewToDo" >
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="7" ShadowDepth="0"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <GroupBox x:Name="NewBox" BorderThickness="0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" Visibility="Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="NewButtonTextBox" AcceptsReturn="True" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="3">
+                    <TextBox.Effect>
+                        <DropShadowEffect BlurRadius="7" ShadowDepth="0"/>
+                    </TextBox.Effect>
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Button x:Name="SaveButton" Background="#E9E9E9" Content="Save" Grid.Column="3" Grid.Row="3" Margin="10 30 10 30" Click="SaveToDo">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="7" ShadowDepth="0"/>
+                    </Button.Effect>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="ViewBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" Visibility="Hidden" BorderThickness="0">
+            <ListBox x:Name="ViewListBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                <ListBox.Effect>
+                    <DropShadowEffect BlurRadius="7" ShadowDepth="0"/>
+                </ListBox.Effect>
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+        </GroupBox>
+    </Grid>
 </Window>
