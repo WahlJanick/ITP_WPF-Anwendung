@@ -1,94 +1,92 @@
 ﻿using System.IO;
-using System.IO.Packaging;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+namespace ToDo_Anwendung_WPF {
+	public class Task {
+		private String description;
+		public Task(String description) {
+			this.description = description;
+		}
+		public String getDescription() {
+			return description;
+		}
+	}
+	public class TaskList /*: IEnumerable<Task> this shit doesn't work, so dumb C Hashtag*/ {
+		public List<Task> tasks = new List<Task>();
+		public TaskList() {}
+		public void addTask(Task task) {
+			tasks.Add(task);
+		}
+		public void removeTask(Task task) {
+			tasks.Remove(task);
+		}
+		public void save(String targetPath) {
+			using (StreamWriter writer = new StreamWriter(targetPath)) {
+				bool first = true;
+				foreach (Task task in tasks) {
+					if (first)
+						first = false;
+					else
+						writer.Write('\n');
+					writer.Write(task.getDescription());
+				}
+				writer.Close();
+			}
+		}
+		public static TaskList load(String sourcePath) {
+			TaskList taskList = new TaskList();
+			if (!File.Exists(sourcePath))
+				File.Create(sourcePath);
+			using (StreamReader reader = new StreamReader(sourcePath)) {
+				string line;
+				while ((line = reader.ReadLine()) != null)
+					taskList.addTask(new Task(line));
+			}
+			return taskList;
+		}
+	}
+	public partial class MainWindow : Window {
+		private TaskList taskList;
+		private String fileName = "ToDo.txt";
+		public MainWindow() {
+			InitializeComponent();
+			NewBox.Visibility = Visibility.Collapsed;
+			ViewBox.Visibility = Visibility.Collapsed;
+			loadTaskList();
+			updateTaskList();
+		}
+		public void loadTaskList() {
+			taskList = TaskList.load(fileName);
+		}
+		public void saveTaskList() {
+			taskList.save(fileName);
+		}
+		public void updateTaskList() {
+			ViewListBox.Items.Clear();
+			List<ListBoxItem> items = new List<ListBoxItem>();
+			foreach (Task task in taskList.tasks)
+				ViewListBox.Items.Add(new ListBoxItem { Content = task.getDescription() });
+		}
 
-namespace ToDo_Anwendung_WPF
-{
-	public partial class MainWindow : Window
-	{
-		private void NewToDo(object s, RoutedEventArgs e)
-		{
+		private void NewToDo(object s, RoutedEventArgs eventArgument) {
 			ViewBox.Visibility = Visibility.Collapsed;
 			NewBox.Visibility = Visibility.Visible;
 		}
-		private void SaveToDo(object s, RoutedEventArgs e)
-		{
-			string[] toDo_str = NewButtonTextBox.Text.ToString().Split("\r\n");
-            if (toDo_str == null)
-			{
+		private void SaveToDo(object s, RoutedEventArgs eventArgument) {
+			String text = NewButtonTextBox.Text.ToString();
+			if (text == null) {
 				MessageBox.Show("You need to write a Todo.");
 				return;
 			}
-			int amountOfToDos = 0;
-			using (var sr = new StreamReader("ToDo.txt"))
-			{
-				string line;
-				while ((line = sr.ReadLine()) != null)
-				{
-					if (line.Split(':')[0] == "todo")
-						++amountOfToDos;
-				}
-			}
-			StringBuilder todo = new StringBuilder();
-			todo.Append($"todo:{amountOfToDos}");
-            foreach (string str in toDo_str)
-            {
-                todo.Append('\n' + str);
-            }
-			var sw = new StreamWriter("ToDo.txt", append: true);
-			sw.Write(todo.ToString());
-			sw.Close();
-            NewBox.Visibility = Visibility.Collapsed;
-            NewButtonTextBox.Text = "";
-        }
-		private void ViewToDo(object s, RoutedEventArgs e)
-		{
+			taskList.addTask(new Task(text));
+			taskList.save(fileName);
+			NewBox.Visibility = Visibility.Collapsed;
+			NewButtonTextBox.Text = "";
+		}
+		private void ViewToDo(object s, RoutedEventArgs eventArgument) {
 			NewBox.Visibility = Visibility.Collapsed;
 			ViewBox.Visibility = Visibility.Visible;
-			ViewListBox.Items.Clear();
-
-            List<ListBoxItem> todos = new List<ListBoxItem>();
-			string todoStr = "";
-			using (var sr = new StreamReader("ToDo.txt"))
-			{
-				string line = "";
-				while (true)
-                {
-                    line = sr.ReadLine();
-					if (line == null)
-						break;
-                    todoStr += line + '\n';
-
-                    /*
-                    if (line.Split(':')[0] == "todo")
-					{
-						todos.Add(new ListBoxItem { Content = todoStr });
-						todoStr = "";
-					}
-					*/
-                }
-			}
-			todos.Add(new ListBoxItem { Content = todoStr });
-			foreach (ListBoxItem todo in todos)
-			{
-				ViewListBox.Items.Add(todo);
-            }
-        }
-		public MainWindow()
-        {
-            InitializeComponent();
-            NewBox.Visibility = Visibility.Collapsed;
-            ViewBox.Visibility = Visibility.Collapsed;
-        }
+			updateTaskList();
+		}
 	}
 }

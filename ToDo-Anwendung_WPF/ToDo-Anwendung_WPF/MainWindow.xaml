@@ -8,56 +8,55 @@
 		Title="MainWindow" Height="450" Width="800">
 	<Grid>
 		<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions >
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button x:Name="New" Content="New" Margin="10" Grid.Column="0" Grid.Row="0" Click="NewToDo"></Button>
-        <Button x:Name="View" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" Click="ViewToDo" ></Button>
-        <GroupBox x:Name="NewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions >
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <TextBox x:Name="NewButtonTextBox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="3"></TextBox>
-                <Button x:Name="SaveButton" Content="Save" Grid.Column="3" Grid.Row="3" Margin="10 30 10 30" Click="SaveToDo"></Button>
-            </Grid>
-        </GroupBox>
-        <GroupBox x:Name="ViewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions >
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <ListBox x:Name="ViewListBox">
-                    <ListBoxItem></ListBoxItem>
-                </ListBox>
-                <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3"></Label>
-            </Grid>
-        </GroupBox>
-        
-    </Grid>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Button x:Name="New" Content="New" Margin="10" Grid.Column="0" Grid.Row="0" Click="NewToDo"></Button>
+		<Button x:Name="View" Content="View" Margin="10" Grid.Column="1" Grid.Row="0" Click="ViewToDo" ></Button>
+		<GroupBox x:Name="NewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions >
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<TextBox x:Name="NewButtonTextBox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="3"></TextBox>
+				<Button x:Name="SaveButton" Content="Save" Grid.Column="3" Grid.Row="3" Margin="10 30 10 30" Click="SaveToDo"></Button>
+			</Grid>
+		</GroupBox>
+		<GroupBox x:Name="ViewBox" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Visibility="Hidden">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions >
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<ListBox x:Name="ViewListBox">
+					<ListBoxItem></ListBoxItem>
+				</ListBox>
+				<Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3"></Label>
+			</Grid>
+		</GroupBox>
+	</Grid>
 </Window>
