@@ -1,5 +1,6 @@
 # ITP WPF-Anwendung
 [Höhere technische Bundeslehr- und Versuchsanstalt Waidhofen an der Ybbs](https://de.wikipedia.org/wiki/HTLWY) 2025 2026 3AHIT
+Primitivste Aufgabenverwaltung in C Hashtag mit Benutzeroberfläche in WPF.
 
 ## group division
 * Sebastian Langer\
